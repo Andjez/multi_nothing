@@ -62,7 +62,7 @@ def load_chain(texts):
 
 #yt_link = st.text_input("enter youtube link here!",key="link")
 
-uploaded_files = st.file_uploader(f"Choose PDF file(s) to Upload", accept_multiple_files=True,key="link")
+uploaded_files = st.file_uploader(f"Choose PDF file(s) to Upload", accept_multiple_files=True,key="link_01")
 
 def get_text():
     input_text = st.text_input("You: ", key="foo")
