@@ -17,24 +17,14 @@ from PyPDF2 import PdfReader
 from langchain.document_loaders import UnstructuredPDFLoader, OnlinePDFLoader
 
 def pdf_loader(uploaded_files):
-    #pdf_text = {}
+    raw_text = ''
     for file in uploaded_files:
         bytes_data = file.read()
-        pdf = pikepdf.open(file)
-      #  pdf.save(file.name)
-      #  filename = file.name
-      #  loader = UnstructuredPDFLoader(filename)
-      #  data = loader.load()
-      #  text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=0)
-      #  texts = text_splitter.split_documents(data)
-      #  pdf_text.update(texts)
-    #return pdf_text
-    raw_text = ''
-    doc_reader = PdfReader(pdf)
-    for i, page in enumerate(doc_reader.pages):
-        text = page.extract_text()
-        if text:
-            raw_text += text
+        with pikepdf.open(bytes_data) as pdf:
+            for page in pdf.pages:
+                text = page.extract_text()
+                if text:
+                    raw_text += text
     text_splitter = CharacterTextSplitter(        
     separator = "\n",
     chunk_size = 1000,
@@ -43,6 +33,7 @@ def pdf_loader(uploaded_files):
      )
     texts = text_splitter.split_text(raw_text)
     return texts
+
 
 def youtube_loader(yt_link):
     loader = YoutubeLoader.from_youtube_url(yt_link, add_video_info=True)
