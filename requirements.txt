@@ -7,7 +7,5 @@ pytube
 InstructorEmbedding
 sentence-transformers
 faiss-cpu
-pikepdf
 unstructured
-pdf2image
-PyPDF2
+pypdf
