@@ -10,3 +10,4 @@ faiss-cpu
 pikepdf
 unstructured
 pdf2image
+PyPDF2
