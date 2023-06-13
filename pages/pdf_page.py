@@ -60,7 +60,7 @@ def load_chain(texts):
     retriever = store.as_retriever(search_kwargs={"k": 3})
     return retriever
 
-yt_link = st.text_input("enter youtube link here!",key="link")
+#yt_link = st.text_input("enter youtube link here!",key="link")
 
 uploaded_files = st.file_uploader(f"Choose PDF file(s) to Upload", accept_multiple_files=True,key="link")
 
