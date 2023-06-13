@@ -29,7 +29,7 @@ def pdf_loader(uploaded_files):
         pdf_text.update(texts)
     return pdf_text
 
-def youtube_loader(link):
+def youtube_loader(yt_link):
     loader = YoutubeLoader.from_youtube_url(yt_link, add_video_info=True)
     documents = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
