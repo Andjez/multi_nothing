@@ -59,7 +59,7 @@ with col2:
         st.session_state["foo"] = ""
 
 @st.cache_resource
-def load_chain(texts):
+def load_chain(_texts):
     instructor_embeddings = main.embedding()
     store = FAISS.from_documents(documents=texts,embedding=instructor_embeddings)
     retriever = store.as_retriever(search_kwargs={"k": 3})
