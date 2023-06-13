@@ -8,3 +8,4 @@ InstructorEmbedding
 sentence-transformers
 faiss-cpu
 pikepdf
+unstructured
