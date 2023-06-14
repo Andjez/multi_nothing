@@ -12,27 +12,10 @@ from langchain.document_loaders import YoutubeLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from youtube_transcript_api import YouTubeTranscriptApi
-import pikepdf
-from PyPDF2 import PdfReader
-from langchain.document_loaders import UnstructuredPDFLoader, OnlinePDFLoader
+#import pikepdf
+#from PyPDF2 import PdfReader
+#from langchain.document_loaders import UnstructuredPDFLoader, OnlinePDFLoader
 
-def pdf_loader(uploaded_files):
-    raw_text = ''
-    for file in uploaded_files:
-        bytes_data = file.read()
-        with pikepdf.open(bytes_data) as pdf:
-            for page in pdf.pages:
-                text = page.extract_text()
-                if text:
-                    raw_text += text
-    text_splitter = CharacterTextSplitter(        
-    separator = "\n",
-    chunk_size = 1000,
-    chunk_overlap  = 200, #striding over the text
-    length_function = len,
-     )
-    texts = text_splitter.split_text(raw_text)
-    return texts
 
 
 def youtube_loader(yt_link):
