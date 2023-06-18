@@ -112,14 +112,11 @@ def text_to_docs(text: str) -> List[Document]:
             doc_chunks.append(doc)
     return doc_chunks
 
-@st.cache_resource
-def emb_model():
-    inst_embeddings = main.embedding()
-    return inst_embeddings
+
     
 @st.cache_resource
 def test_embed(_pages):
-    instructor_embeddings = emb_model()
+    instructor_embeddings = main.embedding()
     # Indexing
     # Save in a Vector DB
     with st.spinner("It's indexing..."):
