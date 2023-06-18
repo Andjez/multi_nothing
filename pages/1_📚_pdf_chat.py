@@ -113,7 +113,7 @@ def text_to_docs(text: str) -> List[Document]:
     return doc_chunks
 
 
-@st.cache_data
+@st.cache_resource
 def test_embed(_pages):
     instructor_embeddings = main.embedding()
     # Indexing
